@@ -1,8 +1,8 @@
 "use client";
-
-import Link from "next/link";
-import styles from "../navbar/navbar.module.css";
+import styles from "../navbar/navbar.css";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import Link from "next/link";
 
 let menu = [
   {
@@ -24,42 +24,65 @@ let menu = [
 ];
 
 let isSessionTrue = true;
-let isAdminTrue = false;
+let isAdminTrue = true;
 
 export default function Navbar() {
+  let [show, setShow] = useState("hide");
   let path = usePathname();
+  function handleMenu() {
+    setShow(show == "hide" ? "show" : "hide");
+  }
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.logo}>LOGO</div>
-        <div className={styles.container}>     
-          <div className={styles.menu}>
-            {menu?.map((item, index) => {
+      <div className="navbar_container">
+        <div>
+          <Link className="link" href={'/'}>LOGO</Link>
+        </div>
+        <div>
+          <ul className="navbar_ul">
+            {menu.map((item, index) => {
+              console.log(item.path, path);
               return (
-                <Link
-                  className={`${path == item.path ? styles.active : ""}`}
-                  key={"menu_" + index}
-                  href={item.path}
-                >
-                  {item.title}
-                </Link>
+                <li key={index}>
+                  <a
+                    className={`${item.path == path ? "active" : ""}`}
+                    href={item.path}
+                  >
+                    {item.title}
+                  </a>
+                </li>
               );
             })}
-            {isSessionTrue ? (
-              <>
-                {isAdminTrue && <Link href={"/admin"}>Admin</Link>}
-                <button className={styles.logoutBtn}>Logout</button>
-              </>
-            ) : (
-              <Link href={"/login"}>Login</Link>
-            )}
+            {isAdminTrue && <li>Admin</li>}
+            {
+              <button className="logout">
+                {isSessionTrue ? "Logout" : "Login"}
+              </button>
+            }
+          </ul>
+          <div className="hamburger_menu">
+            <button className="hamburger_btn" onClick={handleMenu}>
+              <img width={30} height={25} src="/images/hamburger.png" />
+            </button>
           </div>
         </div>
-       
-            <button>
-                Menu
+      </div>
+      <div className={`mobile_menu_container ${show}`}>
+        <ul className="mobile_menu">
+          {menu.map((item, index) => {
+            return (
+              <li className={`${item.path == path ? "active" : ""}`}>
+                <a href={item.path}>{item.title}</a>
+              </li>
+            );
+          })}
+          {isAdminTrue && <li>Admin</li>}
+          {
+            <button className="logout">
+              {isSessionTrue ? "Logout" : "Login"}
             </button>
-        
+          }
+        </ul>
       </div>
     </>
   );

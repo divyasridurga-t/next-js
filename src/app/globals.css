@@ -11,8 +11,9 @@
 }
 
 body{
-  background: var(--bg);
+  background: white;
   color: var(--text);
+  font-family: sans-serif;
 }
 a{
   text-decoration: none;
@@ -23,6 +24,12 @@ a{
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+ /* justify-content: space-between; */
   min-height: 100vh;
+}
+
+@media screen and (max-width: 767px){
+  .container{
+    width: 100%;
+  }
 }

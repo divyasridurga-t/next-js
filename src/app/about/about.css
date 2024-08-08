@@ -1,0 +1,17 @@
+.about_container {
+  display: flex;
+  justify-content: space-between;
+}
+.countainer_sub h2 {
+  font-size: 43px;
+  width: 475px;
+  height: 220px;
+  margin-top: 20px;
+}
+.countainer_sub h1 {
+  font-size: 20px;
+  color: blue;
+}
+.countainer_sub p {
+   width: 450px;
+}  

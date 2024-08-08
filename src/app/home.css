@@ -1,0 +1,23 @@
+.home_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading{
+    font-size: 50px;
+}
+.learn_more{
+    padding: 15px;
+    background-color: rgb(31, 31, 155);
+    border: none;
+    border-radius: 10%;
+    color: white;
+    margin-right: 20px;
+}
+.contact{
+    padding: 15px;
+    background-color:white;
+    border: none;
+    border-radius: 10%;
+    color: grey;
+}

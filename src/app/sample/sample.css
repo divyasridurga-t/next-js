@@ -1,0 +1,21 @@
+.h2_tab{
+    color: white;
+}
+button{
+    padding: 10px;
+    border: none;
+    /* margin-right: 15px; */
+    text-transform: uppercase;
+    background-color: transparent;
+    font-size: 17px;
+    font-weight: bold;
+
+}
+.tab_content{
+    margin-left: 20px;
+}
+.tab_content .active{
+    padding: 10px;
+    border: none;
+    background-color: beige;
+}

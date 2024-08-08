@@ -1,0 +1,16 @@
+.smallList_container{
+    display: flex;
+    color: black;
+    margin-top: 10px;
+}
+.smallList_container .text h2 a{
+    font-size: 13px;
+}
+
+.smallList_container .text h2 {
+    width: 230px;
+    margin-left: 15px;
+    margin-top: -5px;
+    line-height: 15px;
+}
+
